@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Vyankatesh Anant Dalvi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <style>
+        :root {
+            --brand-orange: #209DA0 ;
+            --soft-bg: #fffbf2;
+            --sidebar-width: 250px;
+        }
+
+        /* Added smooth scroll for navigation */
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+        }
+
+        /* --- DESKTOP SIDEBAR --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .side-btn {
+            background-color: var(--brand-orange);
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .side-btn i { margin-right: 12px; width: 20px; text-align: center; }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            background-color: #d3d3d3;
+        }
+
+        .digital-card {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding-bottom: 120px;
+        }
+
+        /* Profile & Arch */
+        .profile-area { padding-top: 40px; }
+        .photo-frame {
+            width: 110px;
+            height: 140px;
+            margin: 0 auto;
+            border: 2px solid #209DA0;
+            border-radius: 30px;
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
+
+        .arch-divider {
+            height: 50px;
+            position: relative;
+            overflow: hidden;
+            margin-top: -10px;
+        }
+        .arch-divider::after {
+            content: "";
+            position: absolute;
+                top: 5px;
+    left: 3%;
+    width: 90%;
+            height: 80px;
+            border: 6px solid #209DA0 ;
+            border-bottom: none;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .title-text { color: var(--brand-orange); font-size: 22px; font-weight: 900; margin: 15px 0; text-transform: uppercase; }
+        .name-text { font-style: italic; font-weight: bold; font-size: 18px; margin: 0; }
+        .sub-title { font-weight: bold; margin-bottom: 20px; }
+
+        /* Action Icons Row */
+        .icon-row { display: flex; justify-content: space-evenly; margin-bottom: 25px; margin-top: 10px; }
+        .icon-item { text-decoration: none; color: #333; font-size: 11px; font-weight: bold; }
+        .icon-item i {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background: var(--brand-orange);
+            color: white;
+            border-radius: 50%;
+            line-height: 48px;
+            font-size: 20px;
+            margin: 0 auto 5px;
+        }
+
+        /* Information Bars */
+        .contact-bar {
+            background-color: var(--soft-bg);
+            margin: 10px 30px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            text-align: left;
+        }
+        .contact-bar i { color: var(--brand-orange); margin-right: 15px; }
+
+        /* --- SECTION STYLING --- */
+        .about-section {
+            margin: 30px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .about-header {
+            background-color: var(--brand-orange);
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .about-content {
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .services-list { list-style: none; padding: 0; margin: 0; }
+        .services-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+        .services-list li i {
+            color: var(--brand-orange);
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+       /* --- AUTO SLIDER STYLES --- */
+.slider-container {
+    position: relative;
+    overflow: hidden; /* Hide scrollbar for auto-slide */
+    background: #fff;
+    padding: 10px 0;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.slide {
+    min-width: 100%; /* Shows one image at a time */
+    height: 250px;
+    padding: 0 10px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+        /* Share Section Styling */
+        .share-section {
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        .whatsapp-input-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .country-code {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            background: #fff;
+            font-weight: bold;
+        }
+
+        .number-input {
+            border: 1px solid #ddd;
+            border-left: none;
+            padding: 10px;
+            width: 150px;
+            border-radius: 0 5px 5px 0;
+            outline: none;
+        }
+
+        .whatsapp-share-btn {
+            background-color: var(--brand-orange);
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 30px;
+            margin: auto;
+            width: 85%;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .whatsapp-share-btn i { margin-right: 10px; font-size: 22px; }
+
+        .dual-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .white-btn {
+            background: white;
+            border: 1px solid #eee;
+            padding: 12px 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* --- QR CODE SECTION --- */
+        .qr-container {
+            margin: 30px 20px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .qr-header {
+            background-color: var(--brand-orange);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .qr-body {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            background: white;
+        }
+
+        .social-footer { margin-top: 20px; }
+
+        .youtube-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e52d27;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        /* --- MOBILE BOTTOM NAV --- */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            grid-template-columns: repeat(5, 1fr);
+            padding: 4px;
+            gap: 2px;
+            z-index: 100;
+        }
+
+        .nav-item {
+            background: var(--brand-orange);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 9px;
+            font-weight: bold;
+        }
+        .nav-item i { display: block; font-size: 16px; margin-bottom: 2px; }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .mobile-nav { display: grid; }
+            .main-content { background-color: #332d35; }
+            body { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+    <div class="sidebar">
+        <a href="#" class="side-btn"><i class="fa fa-home"></i> Home</a>
+        <a href="#about-us" class="side-btn"><i class="fa fa-user"></i> About Us</a>
+        <a href="#products" class="side-btn"><i class="fa fa-tags"></i> Our Products</a>
+        <a href="#services" class="side-btn"><i class="fa fa-briefcase"></i> Our Services</a>
+        <a href="#gallery" class="side-btn"><i class="fa fa-image"></i> Gallery</a>
+        <a href="#social-connect" class="side-btn"><i class="fa fa-link"></i> Social Connects</a>
+    </div>
+
+    <div class="main-content">
+        <div class="digital-card">
+
+
+
+
+            <!-- Simple Header Start -->
+<style>
+    /* ===== SIMPLE HEADER ===== */
+
+.simple-header {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0px 30px;
+}
+
+.brand-logo {
+    width: 60px;   /* Adjust size */
+    height: auto;
+}
+
+.brand-name {
+    color: var(--brand-orange);
+    font-size: 22px;
+    font-weight: 900;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+</style>
+
+<header class="simple-header">
+    <div class="header-container">
+
+        <div class="brand-wrapper">
+            <img src="img/logos.png" alt="Company Logo" class="brand-logo">
+            <span class="brand-name">Digital Office System</span>
+        </div>
+
+    </div>
+</header>
+<!-- Simple Header End -->
+
+
+
+
+<!-- Home Section Start -->
+<style>
+    /* ===== HERO SLIDER ===== */
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+}
+
+.hero-slider-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-slider-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.hero-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay Content */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #021326;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Arrows */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hero-prev { left: 15px; }
+.hero-next { right: 15px; }
+
+/* Dots */
+.hero-dots {
+    position: absolute;
+    bottom: 2px;
+    width: 100%;
+    text-align: center;
+}
+
+.hero-dots span {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    display: inline-block;
+    background: #d10505;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hero-dots .active-dot {
+    background: #053568;
+}
+</style>
+
+<section class="hero-slider">
+
+    <div class="hero-slider-wrapper">
+        <div class="hero-slider-track" id="heroSliderTrack">
+
+            <!-- Slide 1 -->
+            <div class="hero-slide">
+                <img src="img/1.png" alt="Slide 1">
+                <div class="hero-content">
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <img src="img/2.png" alt="Slide 2">
+                <div class="hero-content">
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <img src="img/3.png" alt="Slide 3">
+                <div class="hero-content">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+
+    <!-- Dots -->
+    <div class="hero-dots" id="heroDots"></div>
+
+</section>
+
+<script>
+let heroIndex = 0;
+const heroTrack = document.getElementById("heroSliderTrack");
+const heroSlides = document.querySelectorAll(".hero-slide");
+const totalHeroSlides = heroSlides.length;
+const heroDotsContainer = document.getElementById("heroDots");
+
+/* Create Dots */
+for (let i = 0; i < totalHeroSlides; i++) {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => goToHeroSlide(i));
+    heroDotsContainer.appendChild(dot);
+}
+updateHeroDots();
+
+/* Auto Slide */
+setInterval(() => {
+    moveHeroSlide(1);
+}, 4000);
+
+function moveHeroSlide(direction) {
+    heroIndex += direction;
+
+    if (heroIndex >= totalHeroSlides) heroIndex = 0;
+    if (heroIndex < 0) heroIndex = totalHeroSlides - 1;
+
+    heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+    updateHeroDots();
+}
+
+function goToHeroSlide(index) {
+    heroIndex = index;
+    heroTrack.style.transform = `translateX(-${heroIndex * 100}%)`;
+    updateHeroDots();
+}
+
+function updateHeroDots() {
+    const dots = heroDotsContainer.querySelectorAll("span");
+    dots.forEach(dot => dot.classList.remove("active-dot"));
+    dots[heroIndex].classList.add("active-dot");
+}
+</script>
+<!-- Home Section End -->
+            
+
+
+            <!-- Home Section Start -->
+            
+
+
+            <div class="info-text">
+
+                <div class="icon-row">
+                    <a href="tel:9152991731" class="icon-item"><i class="fa fa-phone"></i>Call</a>
+                    <a href="https://wa.me/9152991731" class="icon-item"><i class="fab fa-whatsapp"></i>WhatsApp</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=B12+Datta+Bhuvan+Society+Tilak+Road+Dombivli+East+Thane+Maharashtra+421201+India" target="_blank" class="icon-item">
+  <i class="fa fa-location-dot"></i> Direction
+</a>
+
+                    <a href="mailto:digitalofficesystem@gmail.com" class="icon-item"><i class="fa fa-envelope"></i>Mail</a>
+                    <a href="http://www.digitalofficesystem.in/" class="icon-item"><i class="fa fa-globe"></i>Website</a>
+                </div>
+
+             
+            </div>
+
+            <div class="share-section">
+                <div class="whatsapp-input-group">
+                    <div class="country-code">+91</div>
+                    <input type="number" id="waNumber" class="number-input" placeholder="Enter Mobile No" oninput="limitDigits(this)">
+                </div>
+
+                <button onclick="shareOnWhatsApp()" class="whatsapp-share-btn">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </button>
+
+                <div class="dual-buttons">
+                    <button onclick="downloadVCard()" class="white-btn">Save to Contacts <i class="fa fa-download"></i></button>
+                    <button onclick="nativeShare()" class="white-btn">Share <i class="fa fa-share-nodes"></i></button>
+                </div>
+
+                
+
+                <div class="social-footer">
+                    <a href="https://www.youtube.com/@vyankateshdalvi9079" target="_blank" class="youtube-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Home Section End -->
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- About Section Start -->
+            <div class="about-section" id="about-us">
+                <div class="about-header">About Us</div>
+                <div class="about-content">
+                    <p><strong>Mr. Vyankatesh Anant Dalvi</strong><br>15 years of Experience | B.E.Instrumentation</p>
+                    <p>We are into Audio Visual equipment Supply business.. provide Projector,LED TV,LED WALL, Digital Class Setup,Home Cinema , Conference Room Solution, Audio system..we provide all kinds of Audio Visual system on rental..also do repair</p>
+                </div>
+            </div>
+            <!-- About Section End -->
+
+
+
+
+
+
+
+
+
+<!-- Products Section Start -->
+<style>
+    /* ===== PRODUCTS SLIDER ===== */
+
+.products-slider-section {
+    padding: 60px 20px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.products-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Slider Wrapper */
+.products-slider-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Track */
+.products-slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Product Card */
+.product-card {
+    min-width: 250px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-card {
+        min-width: 200px;
+    }
+}
+
+</style>
+
+<section class="products-slider-section" id="products">
+
+    <h2 class="products-title">Our Products</h2>
+
+    <div class="products-slider-wrapper">
+        <div class="products-slider-track" id="productsSliderTrack">
+
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="img/projector.png" alt="Projector">
+                <h3>Projector</h3>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="img/led-tv.png" alt="LED TV">
+                <h3>LED TV</h3>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="img/led-wall.png" alt="LED Wall Display">
+                <h3>LED Wall Display</h3>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="img/interactive-display.png" alt="Interactive Display">
+                <h3>Interactive Display</h3>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <img src="img/audio-system.png" alt="Audio System">
+                <h3>Audio System</h3>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <img src="img/digital-class.png" alt="Digital Class">
+                <h3>Digital Class</h3>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+                <img src="img/screen.png" alt="Projection Screen">
+                <h3>Projection Screen</h3>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+                <img src="img/mount.png" alt="Ceiling Mount">
+                <h3>Ceiling Mount</h3>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card">
+                <img src="img/cables.png" alt="HDMI VGA Cables">
+                <h3>HDMI VGA Cables</h3>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+let productIndex = 0;
+const productTrack = document.getElementById("productsSliderTrack");
+const productCards = document.querySelectorAll(".product-card");
+
+const visibleCards = 4; // Number of cards visible at once
+const totalProducts = productCards.length;
+
+function autoProductSlide() {
+    productIndex++;
+
+    if (productIndex > totalProducts - visibleCards) {
+        productIndex = 0;
+    }
+
+    const moveAmount = productIndex * (productCards[0].offsetWidth + 20);
+    productTrack.style.transform = `translateX(-${moveAmount}px)`;
+}
+
+setInterval(autoProductSlide, 3000);
+</script>
+<!-- Products Section End -->
+
+
+
+
+
+
+
+            <!-- services Section Start -->
+            <div class="about-section" id="services">
+                <div class="about-header">Our Services</div>
+                <div class="about-content">
+                    <ul class="services-list">
+                        <li><i class="fa fa-check-circle"></i> PROJECTOR SALE SERVICE RENTAL</li>
+                        <li><i class="fa fa-check-circle"></i> LED TV / LED WALL</li>
+                        <li><i class="fa fa-check-circle"></i> AV SETUP</li>
+                        <li><i class="fa fa-check-circle"></i> DIGITAL CLASS SETUP FOR SCHOOL, COLLEGE,CLASSES</li>
+                        <li><i class="fa fa-check-circle"></i> CONFERENCE & TRAINING ROOM SETUP</li>
+                        <li><i class="fa fa-check-circle"></i> CINEMA HALL SETUP FOR HOME USE</li>
+                        <li><i class="fa fa-check-circle"></i> HOTEL RESTAURANT AV SETUP</li>
+                        <li><i class="fa fa-check-circle"></i> AUDIO-VISUAL RENTAL SETUP</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- services Section End -->
+
+
+
+
+            <!-- Gallery Section Start -->
+            <div class="about-section" id="gallery">
+    <div class="about-header">Gallery</div>
+    <div class="slider-container">
+        <div class="slider-wrapper" id="sliderWrapper">
+            <div class="slide"><img src="img/1.png" alt="Projector Setup"></div>
+            <div class="slide"><img src="img/2.png" alt="LED Wall"></div>
+            <div class="slide"><img src="img/3.png" alt="Conference Room"></div>
+            <div class="slide"><img src="img/4.png" alt="Digital Class"></div>
+            <div class="slide"><img src="img/5.png" alt="Audio System"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+const sliderWrapper = document.getElementById('sliderWrapper');
+
+function autoSlide() {
+    currentIndex++;
+    
+    // If we reach the end, reset to the first slide
+    if (currentIndex >= totalSlides) {
+        currentIndex = 0;
+    }
+    
+    // Calculate the movement
+    const offset = currentIndex * -100;
+    sliderWrapper.style.transform = `translateX(${offset}%)`;
+}
+
+// Start the timer (3000ms = 3 seconds)
+setInterval(autoSlide, 3000);
+</script>
+<!-- Gallery Section End -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Social Connects start -->
+ <style>
+    .social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 5 columns for 5 icons */
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.social-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: auto;
+    transition: transform 0.2s ease;
+}
+
+.social-circle:active {
+    transform: scale(0.9); /* Click effect for mobile */
+}
+
+/* Brand Colors */
+.fb { background-color: #1877F2; }
+.ig { background-color: #E4405F; }
+.ln { background-color: #0A66C2; }
+.tw { background-color: #000000; }
+.yt { background-color: #FF0000; }
+ </style>
+
+ <div class="about-section" id="social-connect">    
+    <div class="about-header">Social Connects</div>
+    <div class="about-content">
+        <div>
+       <a href="tel:9152991731/9867892310" class="contact-bar">
+                    <i class="fa fa-phone"></i>+91 9152991731 /+91 9867892310
+                </a>
+                <a href="mailto:digitalofficesystem@gmail.com" class="contact-bar">
+                    <i class="fa fa-envelope"></i> digitalofficesystem@gmail.com
+                </a>
+                <a href="https://www.google.com/maps/search/?api=1&query=B12+Datta+Bhuvan+Society+Tilak+Road+Dombivli+East+Thane+Maharashtra+421201+India" class="contact-bar">
+                    <i class="fa fa-location-dot"></i>
+                    <span class="contact-text">B12,Datta Bhuvan CHS, Tilak Road,near Sarvesh Hall, Dombivli East , Dombivli , Thane, Maharashtra, India, 421201.</span>
+                </a>
+</div>
+
+<div class="qr-container">
+                    <div class="qr-header">Scan QR Code to download the contact details</div>
+                    <div class="qr-body">
+                        <div id="qrcode"></div>
+                    </div>
+
+                    <div class="social-grid">
+            <a href="#" target="_blank" class="social-circle fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" class="social-circle ig"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vyankatesh-dalvi-412b13230/" target="_blank" class="social-circle ln"><i class="fab fa-linkedin-in"></i></a>
+            
+            <a href="https://www.youtube.com/@vyankateshdalvi9079" target="_blank" class="social-circle yt"><i class="fab fa-youtube"></i></a>
+        </div>
+
+                </div>
+        
+
+        
+    </div>
+</div>
+
+<script>
+    // Simple click tracker for social icons
+document.querySelectorAll('.social-circle').forEach(icon => {
+    icon.addEventListener('click', function() {
+        console.log("Social link clicked: " + this.classList[1]);
+    });
+});
+</script>
+<!-- Social Connects End -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer Section Start -->
+ <style>
+    .card-footer {
+    margin-top: 280px;
+    padding: 0px 0 0px 0; /* Extra bottom padding for mobile nav clearance */
+    background-color: #fff;
+    text-align: center;
+        margin-bottom: -108px;
+}
+
+.footer-line {
+    width: 80%;
+    height: 1px;
+    background: #eee;
+    margin: 0 auto 15px auto;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #555;
+    margin: 0;
+    font-weight: 500;
+}
+
+.made-by {
+    font-size: 11px;
+    color: #999;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.made-by strong {
+    color: #209DA0; /* Uses your brand color */
+}
+
+@media (max-width: 768px) {
+    .card-footer {
+    margin-top: 280px;
+        margin-bottom: -60px;
+}
+}
+ </style>
+
+ <footer class="card-footer">
+    <div class="footer-line"></div>
+    <p class="copyright">© 2026 Mr. Vyankatesh Anant Dalvi</p>
+    <p class="made-by">Digital Card Created By <br> <strong>Sedna Technologies</strong></p>
+</footer>
+
+<script>
+    // Auto-update copyright year
+const year = new Date().getFullYear();
+document.querySelector('.copyright').innerHTML = `© ${year} Mr. Vyankatesh Anant Dalvi`;
+</script>
+<!-- Footer Section End -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Mobile View Navbar Start -->
+    <nav class="mobile-nav">
+        <a href="#" class="nav-item"><i class="fa fa-home"></i>HOME</a>
+        <a href="#about-us" class="nav-item"><i class="fa fa-user"></i>About Us</a>
+        <a href="#products" class="nav-item"><i class="fa fa-tags"></i>PRODUCTS</a>
+        <a href="#services" class="nav-item"><i class="fa fa-briefcase"></i>SERVICES</a>
+        <a href="#gallery" class="nav-item"><i class="fa fa-image"></i>GALLERY</a>
+    </nav>
+    <!-- Mobile View Navbar End -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- All Script Start -->
+    <script>
+        window.onload = function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: window.location.href,
+                width: 150,
+                height: 150,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        };
+
+        function limitDigits(element) {
+            if (element.value.length > 10) {
+                element.value = element.value.slice(0, 10);
+            }
+        }
+
+        function shareOnWhatsApp() {
+            const num = document.getElementById('waNumber').value;
+            const currentUrl = window.location.href;
+            if (num.length === 10) {
+                window.open(`https://wa.me/91${num}?text=Check out this Digital Card: ${currentUrl}`, '_blank');
+            } else {
+                alert("Please enter a valid 10-digit mobile number.");
+            }
+        }
+
+        function downloadVCard() {
+            const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Dr. Sharad Prabhakar Madiwale\nTEL;TYPE=CELL:9821870770\nEMAIL:sharad.madiwale@gmail.com\nEND:VCARD";
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = window.URL.createObjectURL(blob);
+            const newLink = document.createElement('a');
+            newLink.download = "Dr_Sharad.vcf";
+            newLink.href = url;
+            newLink.click();
+        }
+
+        function nativeShare() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Mr. Vyankatesh Anant Dalvi',
+                    url: window.location.href
+                });
+            } else {
+                alert("Share feature not supported on this browser.");
+            }
+        }
+    </script>
+    <!-- All Script End -->
+
+
+</body>
+</html>
